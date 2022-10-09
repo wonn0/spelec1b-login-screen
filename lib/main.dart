@@ -21,12 +21,18 @@ class LoginPage extends StatelessWidget {
         ),
         //default fonts
         fontFamily: 'Open Sans',
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('asdsad to SP Elec'),
+        //button
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            shape: const StadiumBorder(),
+          )
         ),
-        body: const LoginForm(),
+      ),
+      home: const Scaffold(
+        // appBar: AppBar(
+        //   title: const Text('asdsad to SP Elec'),
+        // ),
+        body: LoginForm(),
       )
     );
   }
@@ -38,7 +44,11 @@ class LoginForm extends StatelessWidget {
   Widget loginItem(String placeholder) {
     return TextField(
       decoration: InputDecoration(
-        border: const OutlineInputBorder(),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(50.0),
+        ),
+        filled: true,
+        fillColor: Colors.white,
         labelText: placeholder,
         prefixIcon: Icon(placeholder == 'Username' ? Icons.account_circle_sharp : Icons.key_sharp),
       ),
@@ -49,26 +59,47 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Image.asset('assets/images/logo.png', height: 200, width: 200),
-            loginItem('Username'),
-            loginItem('Password'),
-            OutlinedButton(
-              onPressed: () => {}, 
-              child: const Text('Login'),
-            ),
-            ElevatedButton(
-              onPressed: () => {}, 
-              child: const Text('Login'),
-            )
-          ],
-        ),
-      )
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                child: Image.asset('assets/images/logo.png', height: 200, width: 200),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                child: loginItem('Username'),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                child: loginItem('Password'),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size.fromHeight(50),
+                  ),
+                  onPressed: () => {}, 
+                  child: const Text('Login'),
+                ),
+              ),
+              
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size.fromHeight(50),
+                ),
+                onPressed: () => {}, 
+                child: const Text('Sign Up'),
+              )
+            ],
+          ),
+        )
+      ),
     );
   }
 }
