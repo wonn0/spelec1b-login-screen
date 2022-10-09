@@ -49,6 +49,7 @@ class LoginForm extends StatelessWidget {
         ),
         filled: true,
         fillColor: Colors.white,
+        floatingLabelBehavior: FloatingLabelBehavior.never,
         labelText: placeholder,
         prefixIcon: Icon(placeholder == 'Username' ? Icons.account_circle_sharp : Icons.key_sharp),
       ),
@@ -58,47 +59,54 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
-                child: Image.asset('assets/images/logo.png', height: 200, width: 200),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
-                child: loginItem('Username'),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
-                child: loginItem('Password'),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
-                child: ElevatedButton(
+    return DecoratedBox(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage('assets/images/background.jpg'),
+          ),
+      ),
+      child: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                  child: Image.asset('assets/images/logo.png', height: 200, width: 200),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                  child: loginItem('Username'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                  child: loginItem('Password'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size.fromHeight(50),
+                    ),
+                    onPressed: () => {}, 
+                    child: const Text('Login'),
+                  ),
+                ),
+                ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size.fromHeight(50),
                   ),
                   onPressed: () => {}, 
-                  child: const Text('Login'),
-                ),
-              ),
-              
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size.fromHeight(50),
-                ),
-                onPressed: () => {}, 
-                child: const Text('Sign Up'),
-              )
-            ],
+                  child: const Text('Sign Up'),
+                )
+              ],
+            ),
           ),
-        )
+        ),
       ),
     );
   }
