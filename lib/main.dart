@@ -24,6 +24,7 @@ class LoginPage extends StatelessWidget {
         //button
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
+            minimumSize: const Size.fromHeight(50),
             shape: const StadiumBorder(),
           )
         ),
@@ -89,17 +90,11 @@ class LoginForm extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
                   child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size.fromHeight(50),
-                    ),
                     onPressed: () => {}, 
                     child: const Text('Login'),
                   ),
                 ),
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size.fromHeight(50),
-                  ),
                   onPressed: () => {}, 
                   child: const Text('Sign Up'),
                 )
