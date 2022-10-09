@@ -30,9 +30,6 @@ class LoginPage extends StatelessWidget {
         ),
       ),
       home: const Scaffold(
-        // appBar: AppBar(
-        //   title: const Text('asdsad to SP Elec'),
-        // ),
         body: LoginForm(),
       )
     );
